@@ -9,9 +9,7 @@
             return false;
           });
         });
-</script>
 
-<script type=text/javascript>
         $(function() {
           $('a#basic_tests').bind('click', function() {
             $.getJSON('/upload_basic_tests',
@@ -21,9 +19,7 @@
             return false;
           });
         });
-</script>
 
-<script type=text/javascript>
         $(function() {
           $('a#color_tests').bind('click', function() {
             $.getJSON('/upload_color_tests',
@@ -33,9 +29,7 @@
             return false;
           });
         });
-</script>
 
-<script type=text/javascript>
         $(function() {
           $('a#bouncing').bind('click', function() {
             $.getJSON('/upload_bouncing',
@@ -45,9 +39,7 @@
             return false;
           });
         });
-</script>
 
-<script type=text/javascript>
         $(function() {
           $('a#test').bind('click', function() {
             $.getJSON('/setBrightness',
@@ -57,9 +49,26 @@
             return false;
           });
         });
-</script>
 
-<script type=text/javascript>
+	$(function() {
+	    document.getElementById("bslider").oninput = function (e) {
+                $.getJSON(('/setBrightness?level=' + e.target.value),
+                    function(data) {
+                  //do nothing
+                });
+	    };
+	});
+        
+        $(function() {
+          $('a#color_pulse').bind('click', function() {
+            $.getJSON('/upload_color_pulse',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
         $(function() {
           $('a#pulsating').bind('click', function() {
             $.getJSON('/upload_pulsating',
@@ -79,6 +88,14 @@
     <h3>Random Brightness (Needs "Are We" loaded)</h3>
         <form>
             <a href=# id=test><button class='btn btn-default'>rand.randint my LEDs UWU</button></a>
+        </form>
+
+</div>
+
+<div class='container'>
+    <h3>Set Brightness (Needs "Are We" loaded)</h3>
+        <form>
+	    <input type="range" min="0" max="255" value="0" class="slider" id="bslider"/>
         </form>
 
 </div>
@@ -119,6 +136,13 @@
 
 </div>
 
+<div class='container'>
+    <h3>Upload Color Pulse</h3>
+        <form>
+            <a href=# id=color_pulse><button class='btn btn-default'>No Degeneracy!</button></a>
+        </form>
+
+</div>
 
 
 

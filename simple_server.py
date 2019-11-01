@@ -53,10 +53,15 @@ def upload_pulsating():
     subprocess.run("sudo arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno /home/pi/Development/view-house-lights/pulsating", shell=True)
     return "done"
 
+@app.route("/upload_color_pulse")
+def upload_color_pulse():
+    subprocess.run("sudo arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno /home/pi/Development/view-house-lights/color_pulse", shell=True)
+    return "done"
+
 @app.route("/setBrightness")
 def setBrightness():
-    print("Ouch!")
-    c.send("setLed",rand.randint(0,255))
+    level = request.args.get("level", rand.randint(0,255))
+    c.send("setLed", level)
     return "done"
    
 if __name__ == "__main__":
