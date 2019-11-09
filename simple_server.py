@@ -58,6 +58,11 @@ def upload_color_pulse():
     subprocess.run("sudo arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno /home/pi/Development/view-house-lights/color_pulse", shell=True)
     return "done"
 
+@app.route("/upload_kombat")
+def upload_kombat():
+    subprocess.run("sudo arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno /home/pi/Development/view-house-lights/kombat", shell=True)
+    return "done"
+
 @app.route("/setBrightness")
 def setBrightness():
     level = request.args.get("level", rand.randint(0,255))

@@ -41,6 +41,16 @@
         });
 
         $(function() {
+          $('a#kombat').bind('click', function() {
+            $.getJSON('/upload_kombat',
+              function(data) {
+                //do nothing
+              });
+              return false;
+          });
+        });
+
+        $(function() {
           $('a#test').bind('click', function() {
             $.getJSON('/setBrightness',
                 function(data) {
